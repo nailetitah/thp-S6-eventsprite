@@ -5,3 +5,41 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+
+User.destroy_all
+Event.destroy_all
+Attendance.destroy_all
+
+5.times do 
+  faker_first_name = Faker::Name.first_name
+  pwd = Faker::Internet.password
+  user = User.create!(first_name: faker_first_name, last_name: Faker::Name.last_name, description: Faker::ChuckNorris.fact, email: "#{faker_first_name.downcase}@yopmail.com", password: pwd, password_confirmation: pwd)
+end
+puts "5 utilisateurs ont été générés"
+
+10.times do 
+  event = Event.create!(start_date: Faker::Date.forward(days: 365), duration: rand(1..20) * 5, title: Faker::Book.title, description: "Cet événement attendant de recevoir une description.", price: rand(1..100) * 10, location: Faker::Address.city)
+end
+puts "10 événéments ont été générés"
+
+(1..10).each do |i|
+  while Attendance.where(event_id: i).empty? == true
+    attendance = Attendance.create!(user: User.find(rand(1..5)), event: Event.find(rand(1..10)) )
+  end
+end
+puts "10 attendances ont été générés"
+# Event 
+
+=begin 
+t.datetime :start_date
+t.integer :duration
+t.string :title
+t.text :description
+t.integer :price
+t.string :location
+=end 
+
+# Attendance
+# t.string :stripe_customer_id
