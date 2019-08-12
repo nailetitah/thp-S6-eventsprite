@@ -67,3 +67,5 @@ group :development do
   gem "binding_of_caller"
 end
 gem 'faker'
+gem 'table_print'
+gem 'dotenv-rails'
