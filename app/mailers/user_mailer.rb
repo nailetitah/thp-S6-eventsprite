@@ -15,7 +15,7 @@ class UserMailer < ApplicationMailer
   def attendance_email(attendance)
     @user = attendance.user
     @event = attendance.event
-    mail(to: @user.email, subject: 'Confirmation d\'inscription à l\'événement'
+    mail(to: @user.email, subject: 'Confirmation d\'inscription à l\'événement')
   end
 
 end
