@@ -20,7 +20,7 @@ end
 puts "5 utilisateurs ont été générés"
 
 10.times do 
-  event = Event.create!(start_date: Faker::Date.forward(days: 365), duration: rand(1..20) * 5, title: Faker::Book.title, description: "Cet événement attend de recevoir une description.", price: rand(1..100) * 10, location: Faker::Address.city)
+  event = Event.create!(start_date: Faker::Date.forward(days: 365), duration: rand(1..20) * 5, title: Faker::Book.title, description: "Cet événement attend de recevoir une description.", price: rand(1..100) * 10, location: Faker::Address.city, event_planner_id: User.find(rand(1..5)).id )
 end
 puts "10 événéments ont été générés"
 

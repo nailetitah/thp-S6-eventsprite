@@ -1,4 +1,5 @@
 class Event < ApplicationRecord
+  belongs_to :event_planner, class_name: "User"
   has_many :attendances
   has_many :users, through: :attendances
 
@@ -24,6 +25,10 @@ class Event < ApplicationRecord
     if start_date.present? && start_date < Date.today
       errors.add(:start_date, "ne peut pas être dans le passé")
     end
+  end
+
+  def end_date
+    self.start_date + (duration * 60)
   end
 
 end

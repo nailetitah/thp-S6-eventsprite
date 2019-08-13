@@ -17,29 +17,38 @@
     <%= f.text_area :description, :class => 'form-control' %>
   </div>
   
-  <div class="form-row my-4">
-      <div class="col">
+    <div class="form-row my-4">
+    <div class="col">
       <%= f.label "Date" %><br>
-      <%= f.date_field :start_date, as: :date, value: f.object.try(:strftime,"%m/%d/%Y"), class: 'form-control' %>
+      <%= f.date_select :start_date, class: 'form-control' %>
     </div>
 
     <div class="col">
-      <%= f.label "Durée" %><br>
-      <%= f.text_field :duration, :class => 'form-control' %>
+      <%= f.label "Heure" %><br>
+      <%= f.time_select :start_date, :ignore_date => true, :class => 'form-control' %>
     </div>
   </div>
 
   <div class="form-row my-4">
     <div class="col">
+      <%= f.label "Durée (en minutes)" %><br>
+      <%= f.text_field :duration, :class => 'form-control' %>
+    </div>
+
+    <div class="col">
       <%= f.label "Prix" %><br>
       <%= f.text_field :price, :class => 'form-control' %>
     </div>
+  </div>
   
-    <div class="col">
+    <div class="form-group my-4">
       <%= f.label "Lieu" %><br>
       <%= f.text_field :location, :class => 'form-control' %>
     </div>
-</div>
+
+  <div class="d-none">
+  <%= f.text_field :event_planner_id, :value => current_user.id %>
+  </div>
 
   <div class="form-group my-4">
     <%= submit_tag "Valider", :class => 'w-100 btn btn-primary'  %>

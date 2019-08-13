@@ -7,6 +7,7 @@ class User < ApplicationRecord
   # Liaisons
   has_many :attendances
   has_many :events, through: :attendances
+  has_many :events_created, foreign_key: 'event_planner_id', class_name: "Event"
   
   # Emails
   after_create :welcome_send

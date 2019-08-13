@@ -7,6 +7,11 @@
 		<hr>
 		<div class="my-4">
 			<h6>Nombre de participants : <%= @event.users.count %> </h6>
+			<p>Organisateur : <%= @event.event_planner.first_name %> <%= @event.event_planner.last_name %></p>
+		</div>
+		<hr>
+		<div class="my-4">
+		<p>Cet événement termine le <%= @event.end_date.strftime("%d.%m.%Y à %Hh%M") %></p>
 		</div>
 		<div class="my-4">
 		<p><%= link_to "Voir tous les événements", root_path %></p>
