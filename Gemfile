@@ -69,3 +69,5 @@ end
 gem 'faker'
 gem 'table_print'
 gem 'dotenv-rails'
+gem 'bootstrap-sass', '~> 3.4.1'
+gem 'jquery-rails'
