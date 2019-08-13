@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :events_created, foreign_key: 'event_planner_id', class_name: "Event"
   
   # Emails
-  after_create :welcome_send
+  # after_create :welcome_send
 
   # Validations
   validates :first_name, presence: true
