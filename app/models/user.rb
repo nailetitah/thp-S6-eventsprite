@@ -11,5 +11,8 @@ class User < ApplicationRecord
   # Emails
   after_create :welcome_send
 
+  # Validations
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 
 end

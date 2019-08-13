@@ -16,13 +16,13 @@ class Event < ApplicationRecord
 
   def duration_is_multiple_of_5
     if duration % 5 != 0 
-      errors.add(:duration, "must be multiple of 5")
+      errors.add(:duration, "doit être un multiple de 5")
     end
   end
 
   def start_date_cannot_be_in_the_past
     if start_date.present? && start_date < Date.today
-      errors.add(:start_date, "can't be in the past")
+      errors.add(:start_date, "ne peut pas être dans le passé")
     end
   end
 
