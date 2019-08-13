@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-# before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @events = Event.all.order("created_at DESC")
@@ -8,7 +8,6 @@ class EventsController < ApplicationController
   def show 
     @event = Event.find(params[:id])
   end
-
 
   def new
     @event = Event.new
