@@ -9,6 +9,17 @@
 
   <%= render "devise/shared/error_messages", resource: resource %>
 
+  <div class="row text-left my-3">
+    <div class="col">
+      <%= f.label "Prénom" %>
+      <%= f.text_field :first_name, :class => 'form-control'  %>
+    </div>
+    <div class="col">
+      <%= f.label "Nom" %>
+      <%= f.text_field :last_name, :class => 'form-control' %>
+    </div>
+  </div>
+
   <div class="form-group">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
