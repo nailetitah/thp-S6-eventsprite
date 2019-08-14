@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center ">
 <%= form_for @event do |f| %>
 
   <% if @event.errors.any? %>
@@ -6,7 +6,7 @@
       <div class="alert alert-danger" role="alert"><%= message %></div>
     <% end %>
   <% end %>
- 
+ <div class="border rounded shadow px-4 py-2 mt-4">
   <div class="form-group my-4">
     <%= f.label "Titre" %><br>
     <%= f.text_field :title, :class => 'form-control' %>
@@ -53,5 +53,6 @@
   <div class="form-group my-4">
     <%= submit_tag "Valider", :class => 'w-100 btn btn-primary'  %>
   </div>
+</div>
 <% end %>
 </div>
